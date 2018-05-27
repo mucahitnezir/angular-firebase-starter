@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped mb-0">
+    <thead>
+    <tr>
+      <th>Social Media</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let provider of providers">
+      <td>{{ provider.name }}</td>
+      <td>
+        <span *ngIf="provider.status" style="color: green;">Connected</span>
+        <span *ngIf="!provider.status">Not connected</span>
+      </td>
+      <td>
+        <button class="btn" [ngClass]="provider.class"
+                *ngIf="!provider.status"
+                (click)="linkSocialAccount(provider.providerId)">Connect with {{ provider.name }}</button>
+        <button class="btn" [ngClass]="provider.class"
+                *ngIf="provider.status"
+                (click)="unlinkSocialAccount(provider.providerId)">Disconnect {{ provider.name }}</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

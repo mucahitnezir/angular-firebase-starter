@@ -1,0 +1,42 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-5">
+
+    <div class="card mb-3">
+      <div class="card-header">Login Form</div>
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onLogin(f)">
+          <div class="form-group">
+            <label for="emailAddress">Email Address</label>
+            <input type="email" id="emailAddress" name="emailAddress" ngModel class="form-control" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" ngModel class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="!f.valid">Login</button>
+        </form>
+      </div>
+      <div class="card-footer">
+        <a routerLink="/auth/forgot-password">Forgot password?</a>
+      </div>
+    </div>
+
+    <div class="social-login-providers mb-3">
+      <button class="btn btn-block btn-social btn-facebook" (click)="loginWithSocial('facebook')">
+        <span class="fa fa-facebook"></span>
+        Login with Facebook
+      </button>
+      <button class="btn btn-block btn-social btn-twitter" (click)="loginWithSocial('twitter')">
+        <span class="fa fa-twitter"></span>
+        Login with Twitter
+      </button>
+      <button class="btn btn-block btn-social btn-google" (click)="loginWithSocial('google')">
+        <span class="fa fa-google"></span>
+        Login with Google
+      </button>
+    </div>
+
+  </div>
+</div>
+
+

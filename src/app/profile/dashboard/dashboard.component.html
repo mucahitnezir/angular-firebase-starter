@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped mb-0">
+    <tr>
+      <th>Display Name</th>
+      <td class="align-middle">{{ currentUser.displayName }}</td>
+    </tr>
+    <tr>
+      <th>Email Address</th>
+      <td>
+        {{ currentUser.email }}
+        <span class="badge badge-primary" *ngIf="currentUser.emailVerified">Confirmed</span>
+        <ng-template [ngIf]="currentUser.email && !currentUser.emailVerified">
+          <span class="badge badge-secondary">Not Confirmed</span>
+          <a class="badge badge-primary" href="javascript:void(0)" (click)="sendVerificationEmail()">Send Confirmation Email</a>
+        </ng-template>
+      </td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td>{{ currentUser.phoneNumber }}</td>
+    </tr>
+    <tr>
+      <th>Provider Id</th>
+      <td>{{ currentUser.providerId }}</td>
+    </tr>
+    <tr>
+      <th>User Id</th>
+      <td>{{ currentUser.uid }}</td>
+    </tr>
+    <tr>
+      <th>Creation Time</th>
+      <td>{{ currentUser.metadata.creationTime | date: 'medium' }}</td>
+    </tr>
+    <tr>
+      <th>Last Login Time</th>
+      <td>{{ currentUser.metadata.lastSignInTime | date: 'medium' }}</td>
+    </tr>
+  </table>
+</div>

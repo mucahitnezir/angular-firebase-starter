@@ -1,0 +1,16 @@
+<div class="row">
+  <!--Profile Sidebar-->
+  <div class="col-md-3 mb-3">
+    <img class="img-fluid img-thumbnail mb-3" [src]="currentUser.photoURL" [alt]="currentUser.displayName">
+    <div class="list-group">
+      <a routerLink="/profile/dashboard" routerLinkActive="active" class="list-group-item list-group-item-action">Dashboard</a>
+      <a routerLink="/profile/edit" routerLinkActive="active" class="list-group-item list-group-item-action">Edit Profile</a>
+      <a routerLink="/profile/social" routerLinkActive="active" class="list-group-item list-group-item-action">Social Providers</a>
+    </div>
+  </div>
+
+  <!--Profile Content-->
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
